@@ -7,6 +7,7 @@ import TodoList from '../components/TodoList';
 class App extends React.Component {
     constructor(props){
         super(props);
+        this.removeTodo = this.removeTodo.bind(this);
         this.state = {
             data: [
                 {id: 1, text: 'cook dinner'},
@@ -31,7 +32,7 @@ class App extends React.Component {
         return (
             <div className={style.TodoApp}>
                 <Title tasksNumber={this.state.data.length} />
-                <TodoList items={this.state.data} />
+                <TodoList items={this.state.data} removeItem={this.removeTodo} />
             </div>
         );
     }

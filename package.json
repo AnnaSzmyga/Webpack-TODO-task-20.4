@@ -1,5 +1,5 @@
 {
-  "name": "webpack-TODO-task-20.4",
+  "name": "webpack-todo-task-20.4",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -21,7 +21,6 @@
   "homepage": "https://github.com/Handzia/Webpack-TODO-task-20.4#readme",
   "devDependencies": {
     "@babel/core": "^7.3.3",
-    "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",

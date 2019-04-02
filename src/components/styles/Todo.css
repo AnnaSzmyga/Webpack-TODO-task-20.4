@@ -1,0 +1,10 @@
+.TodoListItem {
+    width: 100%;
+    color: #215284;
+    text-transform: uppercase;
+    background-color: #fff;
+    box-shadow: 2px 2px 6px grey;
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 8px;
+}

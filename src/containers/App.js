@@ -11,14 +11,12 @@ class App extends React.Component {
         super(props);
         this.removeTodo = this.removeTodo.bind(this);
         this.addTodo = this.addTodo.bind(this);
-        this.onChangeHandle = this.onChangeHandle.bind(this);
         this.state = {
             data: [
                 {id: 1, text: 'cook dinner'},
                 {id: 2, text: 'wash dishes'},
                 {id: 3, text: 'clean the house'}
-            ],
-            newTodoText: ''
+            ]
         };
     }
     addTodo(val){
@@ -28,22 +26,19 @@ class App extends React.Component {
         };
         const data = [...this.state.data, todo];
         this.setState({data});
-    }
-    onChangeHandle(event) {
-        this.setState({
-            newTodoText: event.target.value
-        })
+        console.log(this.state.data);
     }
     removeTodo(id) {
         const remainder = this.state.data.filter(todo => todo.id !== id);
         this.setState({data: remainder});
     }
     render() {
+        console.log(this.state.data);
         return (
             <div className={style.TodoApp}>
                 <Title tasksNumber={this.state.data.length} />
-                <TodoForm text={this.state.newTodoText} addItem={this.addTodo} onChangeHandle={this.onChangeHandle} />
-                <TodoList items={this.state.data} removeItem={this.removeTodo} />
+                <TodoForm addTodo={this.addTodo} />
+                <TodoList items={this.state.data} removeTodo={this.removeTodo} />
             </div>
         );
     }

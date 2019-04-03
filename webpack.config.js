@@ -10,6 +10,13 @@ const plugins = [new HtmlWebpackPlugin({
 //webpack.config.js
 module.exports = (env) => {
     const environment = env || 'production';
+	if (env === 'production') {
+		plugins.push(
+			new OptimizeJsPlugin({
+				sourceMap: false
+			})
+		)
+	};
 	
 	return {
 		mode: environment,
@@ -22,7 +29,10 @@ module.exports = (env) => {
 			rules: [
 				{
 					test: /\.js$/,
-					loader: "babel-loader"
+					loader: "babel-loader",
+					options: {
+						plugins: env !== 'production' ? ["react-hot-loader/babel"] : []
+					}
 				},
 				{
 					test: /\.css$/,
@@ -38,15 +48,6 @@ module.exports = (env) => {
 				}
 			]
 		},
-		plugins: [
-			new HtmlWebpackPlugin({
-				template: 'src/index.html',
-				filename: 'index.html',
-				inject: 'body'
-			}),
-			new OptimizeJsPlugin({
-				sourceMap: false
-			})
-		]
+		plugins: plugins
 	}
 };
